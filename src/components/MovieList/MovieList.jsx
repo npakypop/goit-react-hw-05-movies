@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { List, MovieItem,ItemLink, Img, WrapInfo, Date } from './MovieList.styled';
+import { List, MovieItem, WrapInfo, Date } from './MovieList.styled';
 
 export const MovieList = ({ movies }) => {
   return (
