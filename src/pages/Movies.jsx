@@ -2,12 +2,12 @@ import { SearchForm } from '../components/SearchForm/SearchForm';
 import { MovieList } from '../components/MovieList/MovieList';
 import { getMovieByQuery } from 'services/Api';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from "react-router-dom";
+// import { useSearchParams } from "react-router-dom";
 
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
     
   useEffect(() => {
@@ -20,7 +20,7 @@ export const Movies = () => {
 
   const onSearchSubmit = resp => {
     setQuery(resp);
-    setSearchParams({ query });
+    // setSearchParams({ query });
   };
 
   return (
