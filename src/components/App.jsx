@@ -1,5 +1,4 @@
 import { Route, Routes} from 'react-router-dom';
-// import styled from 'styled-components';
 import { Home } from '../pages/Home';
 import { Movies } from '../pages/Movies';
 import { MovieCard } from '../pages/MovieCard';
