@@ -2,12 +2,15 @@ import { SearchForm } from '../components/SearchForm/SearchForm';
 import { MovieList } from '../components/MovieList/MovieList';
 import { getMovieByQuery } from 'services/Api';
 import { useEffect, useState } from 'react';
-// import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('');
-  // const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  // console.log("searchParams", searchParams)
+  const movieName = searchParams.get("query") ?? "";
+  // console.log('query', a);
 
     
   useEffect(() => {
@@ -19,13 +22,14 @@ export const Movies = () => {
 
 
   const onSearchSubmit = resp => {
+    console.log(resp);
     setQuery(resp);
-    // setSearchParams({ query });
+    setSearchParams(resp !== "" ? { query: resp } : {});
   };
 
   return (
     <>
-      <SearchForm onSearchSubmit={ onSearchSubmit } />
+      <SearchForm onSearchSubmit={onSearchSubmit} value={movieName} />
       <MovieList movies={movies} />
     </>
   );

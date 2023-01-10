@@ -10,7 +10,6 @@ export const Container = styled.div`
 export const StyledLink = styled(NavLink)`
   color: black;
   padding: 20px 50px;
-  border: solid 1px black;
   border-radius: 15px;
   background-color: black;
   color: orange;

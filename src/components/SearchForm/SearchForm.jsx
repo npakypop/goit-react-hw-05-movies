@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const SearchForm = ({onSearchSubmit}) => {
+export const SearchForm = ({value, onSearchSubmit}) => {
   const [searchValue, setSearchValue] = useState('');
   
   const inputChange = event => {
@@ -9,10 +9,13 @@ export const SearchForm = ({onSearchSubmit}) => {
  
   const handleSubmit = event => {
     event.preventDefault();
+    console.log(event.target.value);
+    console.log(searchValue);
+
+    onSearchSubmit(searchValue);
     if (searchValue === '') {
       alert('Please type your request');
     }
-    onSearchSubmit(searchValue);
     event.target.reset();
   };
 
@@ -21,13 +24,12 @@ export const SearchForm = ({onSearchSubmit}) => {
       <form onSubmit={handleSubmit}>
         <label>
           <input
-            id="search"
             type="text"
-            placeholder="query"
+            // value={value}
             onChange={inputChange}
           />
         </label>
-        <button type="submit">search</button>
+        <button type="submit" >search</button>
       </form>
     </>
   );
