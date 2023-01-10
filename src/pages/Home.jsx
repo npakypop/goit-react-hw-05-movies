@@ -3,18 +3,21 @@ import { MovieList } from '../components/MovieList/MovieList';
 import { useEffect, useState } from 'react';
 import { getTrendingMovies } from 'services/Api';
 
-export const Home = () => {
-    const [movies, setMovies] = useState([]);
+const Home = () => {
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    getTrendingMovies().then(({ results }) => {
-      setMovies(results)
-    }).catch(error=>console.log(error))
+    getTrendingMovies()
+      .then(({ results }) => {
+        setMovies(results);
+      })
+      .catch(error => console.log(error));
   }, []);
-    
+
   return (
     <>
-        <MovieList movies={movies} />
+      <MovieList movies={movies} />
     </>
-    )
-}
+  );
+};
+export default Home;

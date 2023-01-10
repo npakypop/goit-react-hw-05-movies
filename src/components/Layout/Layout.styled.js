@@ -11,12 +11,13 @@ export const StyledLink = styled(NavLink)`
   color: black;
   padding: 20px 50px;
   border-radius: 15px;
-  background-color: black;
-  color: orange;
-
+  background-color: orange;
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
   &.active {
-    background-color: orange;
-    color: black;
+    background-color: black;
+    color: orange;
   }
 `;
 export const Nav = styled.nav`
@@ -25,5 +26,5 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: end;
   gap: 20px;
-  border-bottom: 2px solid black
+  border-bottom: 2px solid black;
 `;

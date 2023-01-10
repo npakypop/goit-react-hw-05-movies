@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { List, MovieItem, WrapInfo, Button } from './MovieList.styled';
 
 export const MovieList = ({ movies }) => {
+  const location = useLocation();
   return (
     <List>
       {movies.map(
@@ -14,8 +15,8 @@ export const MovieList = ({ movies }) => {
             />
             <WrapInfo>
               <h4>{title ? title : name}</h4>
-              
-              <Link to={`/movies/${id}`}>
+
+              <Link to={`/movies/${id}`} state={{ from: location }}>
                 <Button>More Info</Button>
               </Link>
             </WrapInfo>

@@ -1,16 +1,14 @@
 import { useState } from 'react';
+import { Form, Button, Input } from './SearchForm.styled';
+export const SearchForm = ({ value, onSearchSubmit }) => {
+  const [searchValue, setSearchValue] = useState(value ?? '');
 
-export const SearchForm = ({value, onSearchSubmit}) => {
-  const [searchValue, setSearchValue] = useState('');
-  
   const inputChange = event => {
     setSearchValue(event.target.value);
   };
- 
+
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(event.target.value);
-    console.log(searchValue);
 
     onSearchSubmit(searchValue);
     if (searchValue === '') {
@@ -20,17 +18,11 @@ export const SearchForm = ({value, onSearchSubmit}) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            type="text"
-            // value={value}
-            onChange={inputChange}
-          />
-        </label>
-        <button type="submit" >search</button>
-      </form>
-    </>
+    <Form onSubmit={handleSubmit}>
+      <label>
+        <Input type="text" onChange={inputChange} value={searchValue} />
+      </label>
+      <Button type="submit">search</Button>
+    </Form>
   );
 };
